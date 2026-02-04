@@ -40,6 +40,9 @@ const updateProfile = async (req, res) => {
         res.status(200).json(updatedUser);
     } catch (error) {
         console.error(error);
+        if (error.code === 11000) {
+            return res.status(400).json({ message: 'El correo electrónico ya está en uso' });
+        }
         res.status(500).json({ message: 'Error del servidor' });
     }
 };
