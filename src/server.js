@@ -7,14 +7,14 @@ const authRoutes = require('./routes/authRoutes');
 const productRoutes = require('./routes/productRoutes');
 
 
-// Si la aplicación está detrás de un proxy, habilitar trust proxy
-app.set('trust proxy', 1); 
-
 // Cargar variables de entorno
 dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 5000;
+
+// Si la aplicación está detrás de un proxy, habilitar trust proxy
+app.set('trust proxy', 1);
 
 // Importar el paquete express-rate-limit
 const rateLimit = require('express-rate-limit');
